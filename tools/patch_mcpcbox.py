@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply the v6.1 download-service patches to the v5.6 MCPCBox executable."""
+"""Apply the v6.2 compatibility patches to the v5.6 MCPCBox executable."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 INPUT_SHA256 = "f27553d47e09970cf15b66808def12bec9d57ace19d6cd2d55117db9fca9ff5f"
-OUTPUT_SHA256 = "6fb74848d1ba0dd725ceb27a0353fd61340be601a47a8423dcf83f8ab45629a9"
+OUTPUT_SHA256 = "2fd7b88d65503e2b431ed098e1f0ffff1bba38e1adc3c7c78422b93e8e871f70"
 
 PATCHES = (
     (
@@ -23,6 +23,14 @@ PATCHES = (
     (
         "https://s3.amazonaws.com/Minecraft.Download/versions/",
         "https://yuyu107.github.io/mcpcbox-downloads/",
+    ),
+)
+
+ASCII_PATCHES = (
+    (
+        "http://webmcbox.duowan.com/s/pc/wonderfulvideo/videoIndex.html",
+        "https://yuyu107.github.io/mcpcbox-downloads/video/index.html",
+        3,
     ),
 )
 
@@ -55,6 +63,19 @@ def patch(input_path: Path, output_path: Path) -> None:
             raise SystemExit(f"补丁目标出现次数应为 1，实际为 {count}: {old}")
         data = data.replace(old_bytes, replacement)
 
+    for old, new, expected_count in ASCII_PATCHES:
+        old_bytes = old.encode("ascii")
+        new_bytes = new.encode("ascii")
+        if len(new_bytes) > len(old_bytes):
+            raise SystemExit(f"ASCII 替换内容过长: {new}")
+        count = data.count(old_bytes)
+        if count != expected_count:
+            raise SystemExit(
+                f"补丁目标出现次数应为 {expected_count}，实际为 {count}: {old}"
+            )
+        replacement = new_bytes + b"\0" * (len(old_bytes) - len(new_bytes))
+        data = data.replace(old_bytes, replacement)
+
     actual_output = sha256(data)
     if actual_output != OUTPUT_SHA256:
         raise SystemExit(
@@ -69,7 +90,7 @@ def patch(input_path: Path, output_path: Path) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="生成 MCPCBox Community Fix v6.1 主程序")
+    parser = argparse.ArgumentParser(description="生成 MCPCBox Community Fix v6.2 主程序")
     parser.add_argument("input", type=Path, help="v5.6 MCPCBox.exe")
     parser.add_argument("output", type=Path, help="输出 MCPCBox.exe")
     args = parser.parse_args()
@@ -78,4 +99,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
