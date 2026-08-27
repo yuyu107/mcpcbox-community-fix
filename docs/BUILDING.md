@@ -1,4 +1,4 @@
-# 构建 v6.1
+# 构建 v6.2
 
 ## 环境
 
@@ -13,7 +13,7 @@
 python tools\patch_mcpcbox.py input\MCPCBox.exe build\MCPCBox.exe
 ```
 
-工具会先验证输入 SHA-256，只接受补丁清单指定的 v5.6 文件；修改完成后还会验证输出是否与 v6.1 一致。
+工具会先验证输入 SHA-256，只接受补丁清单指定的 v5.6 文件；修改完成后还会验证输出是否与 v6.2 一致。
 
 ## 组合测试目录
 
@@ -25,4 +25,3 @@ python tools\patch_mcpcbox.py input\MCPCBox.exe build\MCPCBox.exe
 - 用户已合法取得的原版盒子运行文件。
 
 源码仓库不提供原版盒子二进制文件。
-
