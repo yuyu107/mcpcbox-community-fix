@@ -4,6 +4,12 @@
 
 本仓库保存可查看、可修改和可重复构建的脚本、补丁工具与技术文档。Java 运行环境和 Minecraft 版本 JSON 由独立的 [`mcpcbox-downloads`](https://github.com/yuyu107/mcpcbox-downloads) 仓库提供。
 
+## 当前版本
+
+主分支已更新至 v6.2；最新正式 Release 仍为 [v6.1](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v6.1)。
+
+Release 自动提供源码 ZIP 和 TAR.GZ。源码仓库不包含原版 MCPCBox 程序；构建时需要用户自行提供已合法取得的目标文件。
+
 ## 已完成的修复
 
 - 本地皮肤导入、中文提示与本地皮肤管理。
