@@ -4,6 +4,12 @@
 
 本仓库保存可查看、可修改和可重复构建的脚本、补丁工具与技术文档。Java 运行环境和 Minecraft 版本 JSON 由独立的 [`mcpcbox-downloads`](https://github.com/yuyu107/mcpcbox-downloads) 仓库提供。
 
+## 最新版本
+
+当前版本：[MCPCBox Community Fix v6.1](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v6.1)
+
+Release 自动提供源码 ZIP 和 TAR.GZ。源码仓库不包含原版 MCPCBox 程序；构建时需要用户自行提供已合法取得的目标文件。
+
 ## 已完成的修复
 
 - 本地皮肤导入、中文提示与本地皮肤管理。
@@ -21,11 +27,6 @@
 - `docs/BUILDING.md`：构建和验证方法。
 - `CHANGELOG.md`：版本更新记录。
 
-## 使用说明
-
-当前测试成品将在本仓库的 Releases 页面提供。源码仓库不包含原版 MCPCBox 程序；构建补丁时需要用户自行提供已合法取得的目标文件。
-
 ## 许可证与第三方内容
 
 MIT License 仅适用于本项目自行编写的脚本、补丁工具和文档，不适用于原版 MCPCBox、Minecraft、Azul Zulu 或其他第三方组件。项目不隶属于多玩、YY、Mojang、Microsoft 或 Azul。
-
