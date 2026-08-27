@@ -1,0 +1,37 @@
+{
+  "target": "MCPCBox.exe",
+  "base_version": "v5.6",
+  "output_version": "v6.2",
+  "input_sha256": "f27553d47e09970cf15b66808def12bec9d57ace19d6cd2d55117db9fca9ff5f",
+  "output_sha256": "2fd7b88d65503e2b431ed098e1f0ffff1bba38e1adc3c7c78422b93e8e871f70",
+  "changes": [
+    {
+      "purpose": "64-bit Java download URL",
+      "encoding": "UTF-16LE",
+      "expected_count": 1,
+      "old": "http://pkg.tuboshu.com/common/mc/pc/game/1464848531742/Java_7_8_V64.7z",
+      "new": "https://raw.githubusercontent.com/yuyu107/mcpcbox-downloads/main/j.7z"
+    },
+    {
+      "purpose": "64-bit Java archive MD5",
+      "encoding": "UTF-16LE",
+      "expected_count": 1,
+      "old": "0aae6a0b8a2049abc80afa193bd64ecc",
+      "new": "a8bc19564e9bbebba302a4e95413425d"
+    },
+    {
+      "purpose": "Minecraft version JSON base URL",
+      "encoding": "UTF-16LE",
+      "expected_count": 1,
+      "old": "https://s3.amazonaws.com/Minecraft.Download/versions/",
+      "new": "https://yuyu107.github.io/mcpcbox-downloads/"
+    },
+    {
+      "purpose": "Wonderful Video page URL",
+      "encoding": "ASCII",
+      "expected_count": 3,
+      "old": "http://webmcbox.duowan.com/s/pc/wonderfulvideo/videoIndex.html",
+      "new": "https://yuyu107.github.io/mcpcbox-downloads/video/index.html"
+    }
+  ]
+}
