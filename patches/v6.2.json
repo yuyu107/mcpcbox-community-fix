@@ -3,7 +3,7 @@
   "base_version": "v5.6",
   "output_version": "v6.2",
   "input_sha256": "f27553d47e09970cf15b66808def12bec9d57ace19d6cd2d55117db9fca9ff5f",
-  "output_sha256": "2fd7b88d65503e2b431ed098e1f0ffff1bba38e1adc3c7c78422b93e8e871f70",
+  "output_sha256": "85441aa612691039bcc84e9c095beb7cb95ad6b63ba7fd5b10132faf02c157fc",
   "changes": [
     {
       "purpose": "64-bit Java download URL",
@@ -32,6 +32,13 @@
       "expected_count": 3,
       "old": "http://webmcbox.duowan.com/s/pc/wonderfulvideo/videoIndex.html",
       "new": "https://yuyu107.github.io/mcpcbox-downloads/video/index.html"
+    },
+    {
+      "purpose": "Main Wonderful Video page URL",
+      "encoding": "ASCII",
+      "expected_count": 5,
+      "old": "http://webmcbox.duowan.com/s/pcv3/index.html",
+      "new": "https://yuyu107.github.io/mcpcbox-downloads/"
     }
   ]
 }
