@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 INPUT_SHA256 = "f27553d47e09970cf15b66808def12bec9d57ace19d6cd2d55117db9fca9ff5f"
-OUTPUT_SHA256 = "2fd7b88d65503e2b431ed098e1f0ffff1bba38e1adc3c7c78422b93e8e871f70"
+OUTPUT_SHA256 = "85441aa612691039bcc84e9c095beb7cb95ad6b63ba7fd5b10132faf02c157fc"
 
 PATCHES = (
     (
@@ -31,6 +31,11 @@ ASCII_PATCHES = (
         "http://webmcbox.duowan.com/s/pc/wonderfulvideo/videoIndex.html",
         "https://yuyu107.github.io/mcpcbox-downloads/video/index.html",
         3,
+    ),
+    (
+        "http://webmcbox.duowan.com/s/pcv3/index.html",
+        "https://yuyu107.github.io/mcpcbox-downloads/",
+        5,
     ),
 )
 
