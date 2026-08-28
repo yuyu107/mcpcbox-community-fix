@@ -3,7 +3,8 @@
 ## v6.2
 
 - 修复主界面“精彩视频”页面空白的问题。
-- 将旧页面地址替换为 GitHub Pages 上的轻量兼容页面。
+- 将主界面实际使用的旧 `pcv3/index.html` 地址（5 处）替换为 GitHub Pages 兼容首页。
+- 同时替换旧版布局使用的 `wonderfulvideo/videoIndex.html` 地址（3 处）。
 - 页面不依赖原多玩网页服务，便于后续独立维护。
 
 ## v6.1
