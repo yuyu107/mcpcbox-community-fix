@@ -25,6 +25,7 @@ Release 自动提供源码 ZIP 和 TAR.GZ。源码仓库不包含原版 MCPCBox 
 - `src/local-skin-manager/`：本地皮肤导入和管理脚本源码。
 - `tools/patch_mcpcbox.py`：将 v5.6 的 `MCPCBox.exe` 更新为 v6.2。
 - `patches/v6.2.json`：v6.2 的字符串补丁清单和校验值。
+- `web/wonderful-video/index.html`：“精彩视频”兼容页面源码。
 - `docs/BUILDING.md`：构建和验证方法。
 - `CHANGELOG.md`：版本更新记录。
 
