@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply the MCPCBox Community Fix v6.3 patches to the supported v5.6 executable."""
+"""Apply the MCPCBox Community Fix v6.5 patches to the supported v5.6 executable."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 INPUT_SHA256 = "f27553d47e09970cf15b66808def12bec9d57ace19d6cd2d55117db9fca9ff5f"
-OUTPUT_SHA256 = "115ab85504084afa7b080400750b48205402835153f35cd93063284698a2cd7a"
+OUTPUT_SHA256 = "578b7a054e977f2b8e15ebc97aae386ac440906b131065412e10afeb6dd3eb7a"
 
 # UTF-16LE strings. Shorter replacements are padded with NUL bytes inside the
 # original fixed-size string slot.
@@ -27,6 +27,16 @@ UTF16_PATCHES = (
     (
         "https://s3.amazonaws.com/Minecraft.Download/versions/",
         "https://yuyu107.github.io/mcpcbox-downloads/",
+        1,
+    ),
+    (
+        "http://pc.mcapi.tuboshu.com/api/pc/res/xml/gameAllRes.xml",
+        "https://yuyu107.github.io/mcpcbox-downloads/gv.xml",
+        1,
+    ),
+    (
+        "http://pc.mcapi.tuboshu.com/api/pc/gameRes/v2/xml/gameAllRes.xml",
+        "https://yuyu107.github.io/mcpcbox-downloads/gv.xml",
         1,
     ),
     (
@@ -146,7 +156,7 @@ def patch(input_path: Path, output_path: Path) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="生成 MCPCBox Community Fix v6.3 主程序")
+    parser = argparse.ArgumentParser(description="生成 MCPCBox Community Fix v6.5 主程序")
     parser.add_argument("input", type=Path, help="受支持的 v5.6 MCPCBox.exe")
     parser.add_argument("output", type=Path, help="输出 MCPCBox.exe")
     args = parser.parse_args()
