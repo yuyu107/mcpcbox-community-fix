@@ -8,13 +8,13 @@
 
 ## 下载
 
-### MCPCBox Community Fix v6.3
+### MCPCBox Community Fix v6.5
 
 主程序兼容修复版：
 
-- [Release：MCPCBox Community Fix v6.3](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v6.3)
-- 推荐下载：`MCPCBox_Community_Fix_v6.3.zip`
-- 也可单独下载：`MCPCBox_Community_Fix_v6.3.exe`
+- [Release：MCPCBox Community Fix v6.5](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v6.5)
+- 推荐下载：`MCPCBox_Community_Fix_v6.5.zip`
+- 也可单独下载：`MCPCBox_Community_Fix_v6.5.exe`
 
 使用时完全退出盒子，备份原 `MCPCBox.exe`，然后用 Release 中的修复版覆盖即可。
 
@@ -27,10 +27,18 @@
 
 皮肤工具不需要替换主程序，可以单独使用。
 
-## 当前主程序版本：v6.3
+## 当前主程序版本：v6.5
 
-v6.3 基于原版 `2.0.1429734.498` 进行兼容修复，目前包括：
+v6.5 基于原版 `2.0.1429734.498` 进行兼容修复，目前包括：
 
+- **恢复“游戏管理 → 游戏纯净版下载”**。
+- 纯净版列表改由 GitHub Pages 提供，不再依赖已失效的多玩资源接口。
+- 首个恢复并实测通过的纯净版为 **Minecraft 1.7.10**。
+- 纯净版引导包不包含 Minecraft 官方客户端 JAR。
+- 启动时由旧版 MCPCBox 自身从 Mojang 官方地址下载 Minecraft 1.7.10 客户端。
+- 普通 Minecraft libraries 继续从 `libraries.minecraft.net` 获取。
+- 首次启动自动补齐 1.7.10 语言资源并默认简体中文；之后用户仍可自行修改语言。
+- 整个纯净版安装与启动流程不需要本地 HTTP 服务器。
 - 修复失效的 Java 运行环境下载地址。
 - 支持 Java 7u80 / Java 8u252 x64 的兼容下载与识别。
 - 修复 Minecraft 版本 JSON 下载地址。
@@ -43,6 +51,19 @@ v6.3 基于原版 `2.0.1429734.498` 进行兼容修复，目前包括：
 - “查看全部直播”跳转到虎牙《我的世界》直播分类页。
 - 顶部“多玩贴吧”按钮改为百度“多玩我的世界盒子吧”。
 - “关于盒子”保留原版版本号，并标记为“2026 社区兼容修复版”。
+
+## 纯净版下载恢复
+
+v6.5 恢复了原生 `pure_version_itembox` 页面使用的纯净版下载链路。
+
+当前稳定条目：
+
+- 显示名称：`Minecraft 1.7.10`
+- 版本 ID：`1.7.10-mcbox`
+- 纯净版清单：`mcpcbox-downloads/gv.xml`
+- 引导 ZIP：`mcpcbox-downloads/pure/minecraft_1.7.10_bootstrap.zip`
+
+恢复方案保留旧盒子的原生安装、依赖检查和启动流程。Minecraft 客户端及 Mojang 资源文件不由本项目重新分发，而是由用户本机从官方服务获取。
 
 ## 本地皮肤工具
 
@@ -64,18 +85,18 @@ v6.3 基于原版 `2.0.1429734.498` 进行兼容修复，目前包括：
 ## 仓库内容
 
 - `tools/patch_mcpcbox.py`：从受支持的原版主程序生成当前修复版。
-- `patches/v6.3.json`：v6.3 字符串补丁清单、替换目标与 SHA-256。
+- `patches/v6.5.json`：v6.5 字符串补丁清单、替换目标与 SHA-256。
 - `src/local-skin-manager/`：本地皮肤工具源码。
 - `web/wonderful-video/`：“精彩视频”兼容页面源码。
 - `web/game-live/`：“游戏直播”兼容页说明与源码对应关系。
 - `docs/BUILDING.md`：自行构建与验证方法。
-- `docs/RELEASE_v6.3.md`：v6.3 发布说明模板。
+- `docs/RELEASE_v6.5.md`：v6.5 发布说明模板。
 - `docs/RELEASE_local_skin_manager_v1.0.md`：皮肤工具发布说明模板。
 - `CHANGELOG.md`：项目更新记录。
 
 ## 配套资源仓库
 
-Java 运行环境、Minecraft 版本 JSON 和部分静态兼容资源由独立仓库提供：
+Java 运行环境、Minecraft 版本 JSON、纯净版清单和引导资源由独立仓库提供：
 
 [`yuyu107/mcpcbox-downloads`](https://github.com/yuyu107/mcpcbox-downloads)
 
