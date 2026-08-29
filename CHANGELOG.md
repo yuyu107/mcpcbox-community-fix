@@ -1,5 +1,22 @@
 # 更新记录
 
+## v6.5
+
+- 恢复“游戏管理 → 游戏纯净版下载”原生页面的数据链路。
+- 将旧的 `gameAllRes.xml` 两个失效接口替换为 GitHub Pages 上的兼容 `gv.xml`。
+- 首个恢复并完成从零安装、启动实测的纯净版为 Minecraft 1.7.10。
+- 使用稳定版本 ID `1.7.10-mcbox`，列表显示名称为 `Minecraft 1.7.10`。
+- 纯净版引导 ZIP 仅约 13 KB，不重新分发 Minecraft 官方客户端。
+- 确认旧版启动器的 libraries 下载逻辑会按 `library.name` 生成 Maven 路径，并支持旧格式顶层 `library.url`。
+- 利用旧格式 `library.url`，让盒子自身直接从 Mojang 官方地址获取 1.7.10 `client.jar`。
+- 普通 libraries 继续从 `libraries.minecraft.net` 下载。
+- 启动前置组件读取 GitHub 清单，并从 Mojang 官方资源服务补齐 1.7.10 语言资源。
+- 首次启动默认设置为简体中文，同时保留后续手动切换语言的能力。
+- 正式流程不再需要本地 HTTP 测试服务器。
+- 更新 `tools/patch_mcpcbox.py` 与 `patches/v6.5.json`。
+- v6.5 主程序 SHA-256 固定为 `578b7a054e977f2b8e15ebc97aae386ac440906b131065412e10afeb6dd3eb7a`。
+- 通过全新 `Minecraft 1.7.10` 条目完成下载、安装和启动实测。
+
 ## v6.3
 
 - 在 v6.2 基础上合并本轮已经实测通过的修复。
