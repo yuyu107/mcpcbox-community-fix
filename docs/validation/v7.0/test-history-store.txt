@@ -1,0 +1,1 @@
+PASS production history codec/store across separate processes: completed restore, Unicode/64-bit sizes/stable IDs, repeat load deduplication, single/all removal persists, no cache rescan, failed save retains dirty state, concurrent mutation reflush, corrupt file preserved. Real host files; Win32 and adapter calls substituted.

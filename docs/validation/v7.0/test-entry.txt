@@ -1,0 +1,5 @@
+PASS: native entry + real pseudo-relocation helper at 0x400000 crypto False registers/flags/stack preserved, original entry reached.
+PASS: native entry + real pseudo-relocation helper at 0x400000 crypto True registers/flags/stack preserved, original entry reached.
+PASS: native entry + real pseudo-relocation helper at 0x2000000 crypto False registers/flags/stack preserved, original entry reached.
+PASS: native entry + real pseudo-relocation helper at 0x2000000 crypto True registers/flags/stack preserved, original entry reached.
+Windows APIs were stubbed; this does not test Windows networking, UI, or game launch.

@@ -8,7 +8,7 @@
 
 ## 恢复维护：MCPCBox Community Fix v7.0
 
-项目在此前修复工作基础上恢复维护，本轮公开版本确定为 **v7.0**，相较上一公开版本 **v6.5** 更新下载与管理体验。标签使用 `v7.0`，附件名为 `MCPCBox_Community_Fix_v7.0.zip`。源码目录中的 Native Adapter v18 仅是内部开发编号。
+项目在此前修复工作基础上恢复维护，本轮**v7.0 已发布**，相较上一公开版本 **v6.5** 更新下载与管理体验。标签使用 `v7.0`，附件名为 `MCPCBox_Community_Fix_v7.0.zip`。当前发布包对应内部构建 Native Adapter v19，包含已完成记录的持久化修复。
 
 ### 相较 v6.5 的主要变化
 
@@ -18,24 +18,38 @@
 | 下载进度 | 原资源下载与安装流程 | 一个完整版本对应一条整体任务，汇总全部文件字节进度 |
 | 文件复用 | 原资源下载、校验及安装机制 | 按官方 SHA-1 校验的共享缓存，可供重试、重装及跨版本复用 |
 | 已下载管理 | 原下载记录界面 | 多选、批量仅清记录、独立可关闭提示框；资源删除与版本卸载职责分开 |
+| 完成记录 | 原下载记录机制 | 整体版本记录可跨重启恢复，删除结果同步保存 |
 | 首次中文 | 已支持恢复的 1.7.10 链路 | 扩展到新安装流程，区分新旧语言代码并保留已有设置 |
 
 v6.5 已经由盒子自身下载官方客户端，也已具备 1.7.10 首次中文设置；本次扩展的是完整多文件下载、管理和新安装流程。本地游戏导入和启动同样是原有能力。
 
 - [v7.0 完整发布说明及升级方法](docs/RELEASE_v7.0.md)
-- [源码与构建说明](src/native-v18/README.md)
-- [功能、目录与限制](docs/NATIVE_ADAPTER_v18.md)
-- [本地验证结果](docs/validation/native-adapter-v18/)
+- [源码与构建说明](src/native-v19/README.md)
+- [功能、目录与限制](docs/NATIVE_ADAPTER_v7.0.md)
+- [本地验证结果](docs/validation/v7.0/)
 
-本轮还修正了重试回调、原任务收尾、文件占用与下载中心结束状态同步问题。真实 Windows 下载稳定性和各版本启动兼容性仍需验证；当前 v7.0 发布材料已准备，现有 v6.5 稳定版资料保留。
+本轮还修正了重试回调、原任务收尾、文件占用与下载中心结束状态同步问题。真实 Windows 下载稳定性和各版本启动兼容性仍需验证；当前 v7.0 已发布；v6.5 资料保留作历史参考。
 
 新页面的本机接口内嵌在 EXE 中，监听 `127.0.0.1:19481`；游戏文件仍由原 `CDownloadManager / taskmodulehttp.dll` 下载，无新增外置运行插件。此前“无需本地 HTTP 服务”的说明适用于 v6.5 原链路。
 
-## 下载（现有稳定版）
+## 下载
 
-### MCPCBox Community Fix v6.5
+### MCPCBox Community Fix v7.0（当前版本）
 
-主程序兼容修复版：
+- [v7.0 Release 与更新说明](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v7.0)
+- [下载 MCPCBox_Community_Fix_v7.0.zip](https://github.com/yuyu107/mcpcbox-community-fix/releases/download/v7.0/MCPCBox_Community_Fix_v7.0.zip)
+
+完全退出盒子后替换包内 `MCPCBox.exe`，保留现有 DLL、游戏和缓存。发布包已包含整体完成记录的保存/恢复，配置文件位于 `%APPDATA%\duowan\mcpcbox\community-fix\completed-history-v1.json`；仅删除记录或清空后不会在重启时重新出现。
+
+ZIP SHA-256：`6f78f10fa8000b8a6601a160f002312b1efa6adae498cd2e2a5b33e2ca622bef`。
+
+GitHub 自动生成的 Source code ZIP/TAR 对应标签创建时的快照。重建当前附件请优先使用附件内 `Source-v7.0.zip` 或 [`src/native-v19/`](src/native-v19/)。
+
+### 历史版本
+
+#### MCPCBox Community Fix v6.5
+
+此前主程序兼容修复版（非当前推荐下载）：
 
 - [Release：MCPCBox Community Fix v6.5](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v6.5)
 - 推荐下载：`MCPCBox_Community_Fix_v6.5.zip`
@@ -54,7 +68,7 @@ v6.5 已经由盒子自身下载官方客户端，也已具备 1.7.10 首次中�
 
 皮肤工具不需要替换主程序，可以单独使用。
 
-## 已发布稳定主程序版本：v6.5
+## v6.5 历史功能说明
 
 v6.5 基于原版 `2.0.1429734.498` 进行兼容修复，目前包括：
 
@@ -98,7 +112,7 @@ v6.5 基于原版 `2.0.1429734.498` 进行兼容修复，目前包括：
 
 v6.5 额外恢复了原生 `pure_version_itembox` 页面使用的**在线纯净版下载链路**，用于直接从盒子里下载安装游戏版本。
 
-当前稳定在线下载条目：
+v6.5 的历史在线下载条目：
 
 - 显示名称：`Minecraft 1.7.10`
 - 版本 ID：`1.7.10-mcbox`
@@ -126,7 +140,8 @@ v6.5 额外恢复了原生 `pure_version_itembox` 页面使用的**在线纯净�
 
 ## 仓库内容
 
-- `tools/patch_mcpcbox.py`：从受支持的原版主程序生成当前修复版。
+- `src/native-v19/`：当前 v7.0 发布附件对应的原生适配源码。
+- `tools/patch_mcpcbox.py`：重建 v6.5 等历史字符串补丁版。
 - `patches/v6.5.json`：v6.5 字符串补丁清单、替换目标与 SHA-256。
 - `src/local-skin-manager/`：本地皮肤工具源码。
 - `web/wonderful-video/`：“精彩视频”兼容页面源码。
@@ -153,15 +168,9 @@ Java 运行环境、Minecraft 版本 JSON、纯净版清单和引导资源由独
 
 ## 自行构建
 
-如果不使用 Release 成品，可以使用：
+当前 v7.0 发布附件使用 `src/native-v19/` 的 C 适配代码与 MinGW 构建，需要精确匹配的 v4 单列表 EXE 基底；构建前会校验输入 SHA-256。请参阅 [docs/BUILDING.md](docs/BUILDING.md)。
 
-`tools/patch_mcpcbox.py`
-
-对受支持的原版 `MCPCBox.exe` 应用补丁。脚本会检查输入文件 SHA-256，并在生成后再次校验输出文件，避免对错误版本误打补丁。
-
-详细说明见：
-
-`docs/BUILDING.md`
+`tools/patch_mcpcbox.py` 和 `patches/v6.5.json` 保留用于历史 v6.5 构建，不会生成当前 v7.0 发布附件。
 
 ## 项目结构说明
 

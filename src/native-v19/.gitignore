@@ -1,0 +1,7 @@
+payload.exe
+payload.map
+ui.inc
+history-ui.inc
+*.log
+tests/test_core
+__pycache__/

@@ -1,14 +1,14 @@
 # 构建说明
 
-## v6.6（内部开发编号 Native Adapter v18）
+## v7.0（内部开发编号 Native Adapter v19）
 
-新适配器源代码位于 [`../src/native-v18/`](../src/native-v18/)，与下方 v6.5 的字符串补丁构建流程独立。
+新适配器源代码位于 [`../src/native-v19/`](../src/native-v19/)，与下方 v6.5 的字符串补丁构建流程独立。
 
 在仓库根目录执行（Linux/MinGW 交叉编译环境）：
 
 ```sh
 python3 -m pip install pefile
-CC=i686-w64-mingw32-gcc bash src/native-v18/build.sh --base /path/to/exact-v4/MCPCBox.exe --out-dir "$PWD/build/native-adapter-v18"
+CC=i686-w64-mingw32-gcc bash src/native-v19/build.sh --base /path/to/exact-v4/MCPCBox.exe --out-dir "$PWD/build/native-adapter-v19"
 ```
 
 基底必须是此前 v4 单列表 EXE，SHA-256：
@@ -19,12 +19,14 @@ CC=i686-w64-mingw32-gcc bash src/native-v18/build.sh --base /path/to/exact-v4/MC
 
 ```sh
 cd src
-bash native-v18/tests/verify-portable.sh
+bash native-v19/tests/verify-portable.sh
 ```
 
 需要 Node.js、主机 GCC、OpenSSL 开发库与 pthread。机器码测试另需 Unicorn/Capstone、匹配的原始 DLL 素材及默认目录中的构建输出；具体见源码 README 和测试脚本。
 
-公开发布包名为 `MCPCBox_Community_Fix_v6.6.zip`，校验值见 [`validation/v6.6/SHA256SUMS.txt`](validation/v6.6/SHA256SUMS.txt)。构建报告与测试结果只说明所列检查，不能代替真实 Windows 和游戏启动实测。
+已发布附件包含记录持久化修复，重建请使用 `src/native-v19/` 或附件中的 `Source-v7.0.zip`；标签的自动源码归档仍对应标签创建时快照。
+
+公开发布包名为 `MCPCBox_Community_Fix_v7.0.zip`，校验值见 [`validation/v7.0/SHA256SUMS.txt`](validation/v7.0/SHA256SUMS.txt)。构建报告与测试结果只说明所列检查，不能代替真实 Windows 和游戏启动实测。
 
 ---
 
