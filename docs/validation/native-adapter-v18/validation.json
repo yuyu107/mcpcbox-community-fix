@@ -1,0 +1,139 @@
+{
+  "base": "MCPCBox_Pure_UI_v4_SingleList",
+  "sha256": "33d3eda01363b5f5b28bfaa1c58eeb341926fd188a2c0c9df4ad82ed61023466",
+  "size": 14571520,
+  "originalEntryRva": "0x2c5578",
+  "newEntryRva": "0xd7abff",
+  "originalCodeChangesRestrictedToNativeTaskHooks": [
+    {
+      "rva": 750976,
+      "offset": 747904,
+      "size": 7,
+      "target": 18340720,
+      "name": "AdapterResourceGate"
+    },
+    {
+      "rva": 752768,
+      "offset": 749696,
+      "size": 6,
+      "target": 18340764,
+      "name": "AdapterSuccessGate"
+    },
+    {
+      "rva": 752976,
+      "offset": 749904,
+      "size": 6,
+      "target": 18340804,
+      "name": "AdapterErrorGate"
+    },
+    {
+      "rva": 759072,
+      "offset": 756000,
+      "size": 7,
+      "target": 18344249,
+      "name": "AdapterDownloading@8"
+    },
+    {
+      "rva": 759216,
+      "offset": 756144,
+      "size": 7,
+      "target": 18344286,
+      "name": "AdapterDownloaded@8"
+    },
+    {
+      "rva": 754352,
+      "offset": 751280,
+      "size": 7,
+      "target": 18344888,
+      "name": "AdapterPercentGate"
+    },
+    {
+      "rva": 760080,
+      "offset": 757008,
+      "size": 6,
+      "target": 18344757,
+      "name": "AdapterPauseGate"
+    },
+    {
+      "rva": 760576,
+      "offset": 757504,
+      "size": 6,
+      "target": 18344789,
+      "name": "AdapterResumeGate"
+    },
+    {
+      "rva": 759360,
+      "offset": 756288,
+      "size": 6,
+      "target": 18344821,
+      "name": "AdapterDeleteGate"
+    },
+    {
+      "rva": 761152,
+      "offset": 758080,
+      "size": 6,
+      "target": 18344853,
+      "name": "AdapterDeleteDoneGate"
+    },
+    {
+      "rva": 480818,
+      "offset": 477746,
+      "size": 5,
+      "target": 18344925,
+      "name": "AdapterBadgeGate"
+    }
+  ],
+  "nativePayloadSections": [
+    {
+      "name": ".mcx",
+      "rva": "0xd74000",
+      "size": 120928,
+      "flags": "0x60000020"
+    },
+    {
+      "name": ".mcd",
+      "rva": "0xd92000",
+      "size": 357376,
+      "flags": "0xc0000040"
+    }
+  ],
+  "extraImports": [
+    "ADVAPI32.dll",
+    "KERNEL32.dll",
+    "msvcrt.dll",
+    "ole32.dll",
+    "SHELL32.dll",
+    "USER32.dll",
+    "WINHTTP.dll",
+    "WININET.DLL",
+    "WS2_32.dll"
+  ],
+  "relocationsMerged": 100162,
+  "aslrPreserved": true,
+  "checksumVerified": true,
+  "managedRuntimeRequired": false,
+  "externalDownloadProcessRequired": false,
+  "windowsRuntimeTested": false,
+  "nativeDownloadCenterSubmissionImplemented": true,
+  "nativeVersionTaskAggregationImplemented": true,
+  "automaticVersionRegistrationAttemptImplemented": true,
+  "nativeTaskRuntimeVerified": false,
+  "gameDownloadEngine": "original CDownloadManager / taskmodulehttp.dll",
+  "gamePathSource": "IMCOption download path + game/version",
+  "release": "v18-test",
+  "nativeCallbackIdentityPriority": true,
+  "nativeTerminalResultMonotonic": true,
+  "retryWaitsForOldTaskRetirement": true,
+  "fileLockRetryBoundMs": 3000,
+  "nativeRetirementWaitBoundMs": 5000,
+  "centerRefreshBeforeWebTerminal": true,
+  "centerRefreshWaitBoundMs": 2000,
+  "failedGroupsExcludedFromActive": true,
+  "verifiedHashRequirementsUnchanged": true,
+  "realWindowsFailureRateVerified": false,
+  "antivirusDetectionResolved": false,
+  "githubPublished": false,
+  "sourceArchiveFrontendTestsIncluded": true,
+  "sourceArchivePackagingCorrected": true,
+  "executableUnchangedFromOriginalV18": true
+}

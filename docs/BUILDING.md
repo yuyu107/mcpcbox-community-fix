@@ -1,4 +1,34 @@
-# 构建 v6.5
+# 构建说明
+
+## Native Adapter v18 测试版
+
+新适配器源代码位于 [`../src/native-v18/`](../src/native-v18/)，与下方 v6.5 的字符串补丁构建流程独立。
+
+在仓库根目录执行（Linux/MinGW 交叉编译环境）：
+
+```sh
+python3 -m pip install pefile
+CC=i686-w64-mingw32-gcc bash src/native-v18/build.sh --base /path/to/exact-v4/MCPCBox.exe --out-dir "$PWD/build/native-adapter-v18"
+```
+
+基底必须是此前 v4 单列表 EXE，SHA-256：
+`3f8209b850663b7e64e2244a5ecaf8f6e061bfea0975f00a02de11eaad08ccdc`。
+该输入以及原 DLL 不在源码仓库中。输出仍需放回原盒子安装目录与已有 DLL 配合运行。
+
+便携回归测试从源码父目录运行：
+
+```sh
+cd src
+bash native-v18/tests/verify-portable.sh
+```
+
+需要 Node.js、主机 GCC、OpenSSL 开发库与 pthread。机器码测试另需 Unicorn/Capstone、匹配的原始 DLL 素材及默认目录中的构建输出；具体见源码 README 和测试脚本。
+
+本轮已构建测试包的校验值见 [`validation/native-adapter-v18/SHA256SUMS.txt`](validation/native-adapter-v18/SHA256SUMS.txt)。构建报告与测试结果只说明所列检查，不能代替真实 Windows 和游戏启动实测。
+
+---
+
+## 构建 v6.5（稳定版）
 
 ## 环境
 
