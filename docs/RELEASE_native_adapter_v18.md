@@ -1,5 +1,5 @@
-# 内部 Native Adapter v18 的公开发布版本
+# 公开版本已确定为 v7.0
 
-本轮成果沿用原项目的公开版本号 **v6.6**，标签为 `v6.6`。v18 仅为内部开发编号。
+本轮恢复维护的成果以 **MCPCBox Community Fix v7.0** 发布，标签使用 `v7.0`，对比基准为上一公开版 v6.5。此前 v6.6 为未发布草案，Native Adapter v18 为内部开发编号。
 
-发布时请使用 [MCPCBox Community Fix v6.6 发布说明](RELEASE_v6.6.md)，附件名为 `MCPCBox_Community_Fix_v6.6.zip`。
+请使用 [v7.0 发布说明与功能对比](RELEASE_v7.0.md)，附件名为 `MCPCBox_Community_Fix_v7.0.zip`。
