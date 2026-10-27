@@ -6,16 +6,18 @@
 
 > 本项目不是多玩官方版本，也不隶属于多玩、YY、Mojang、Microsoft、虎牙或其他相关厂商。
 
-## 原生下载适配测试版：Native Adapter v18
+## 下一公开版本：MCPCBox Community Fix v6.6
+
+公开版本号沿用原项目序列，由 v6.5 递增为 **v6.6**，发布标签为 `v6.6`，下载包名为 `MCPCBox_Community_Fix_v6.6.zip`。源码目录中的 v18 仅是内部开发编号。
 
 本轮开发成果已同步到 [`src/native-v18/`](src/native-v18/)，包括官方版本目录、原下载模块适配、整体任务进度、共享缓存、下载记录多选、页面提示整理和首次中文设置。
 
-v18 重点修正同路径重试时的迟到回调、原任务收尾与缓存文件占用，以及网页和下载中心结束状态不同步的问题。它仍为**测试版**，未替代下方的 v6.5 稳定版，也不代表最新 Minecraft 已通过启动兼容性验证。
+v6.6（内部开发编号 Native Adapter v18）重点修正同路径重试时的迟到回调、原任务收尾与缓存文件占用，以及网页和下载中心结束状态不同步的问题。它仍为**测试版**，未替代下方的 v6.5 稳定版，也不代表最新 Minecraft 已通过启动兼容性验证。
 
 - [源码与构建说明](src/native-v18/README.md)
 - [本轮功能、目录与限制](docs/NATIVE_ADAPTER_v18.md)
 - [v18 时序修正](src/native-v18/CHANGELOG-v18.zh-CN.md)
-- [Release 说明文件](docs/RELEASE_native_adapter_v18.md)
+- [Release 说明文件](docs/RELEASE_v6.6.md)
 - [本地验证结果](docs/validation/native-adapter-v18/)
 
 新方案由 EXE 内嵌的本机接口提供页面服务，监听 `127.0.0.1:19481`；游戏文件仍由原 `CDownloadManager / taskmodulehttp.dll` 下载，没有新增外置运行插件。此前“不需要本地 HTTP 服务器”的说明适用于下方 v6.5 稳定链路。
@@ -43,7 +45,7 @@ v18 重点修正同路径重试时的迟到回调、原任务收尾与缓存文�
 
 皮肤工具不需要替换主程序，可以单独使用。
 
-## 当前稳定主程序版本：v6.5
+## 已发布稳定主程序版本：v6.5
 
 v6.5 基于原版 `2.0.1429734.498` 进行兼容修复，目前包括：
 

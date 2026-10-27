@@ -1,6 +1,6 @@
 # 构建说明
 
-## Native Adapter v18 测试版
+## v6.6（内部开发编号 Native Adapter v18）
 
 新适配器源代码位于 [`../src/native-v18/`](../src/native-v18/)，与下方 v6.5 的字符串补丁构建流程独立。
 
@@ -24,7 +24,7 @@ bash native-v18/tests/verify-portable.sh
 
 需要 Node.js、主机 GCC、OpenSSL 开发库与 pthread。机器码测试另需 Unicorn/Capstone、匹配的原始 DLL 素材及默认目录中的构建输出；具体见源码 README 和测试脚本。
 
-本轮已构建测试包的校验值见 [`validation/native-adapter-v18/SHA256SUMS.txt`](validation/native-adapter-v18/SHA256SUMS.txt)。构建报告与测试结果只说明所列检查，不能代替真实 Windows 和游戏启动实测。
+公开发布包名为 `MCPCBox_Community_Fix_v6.6.zip`，校验值见 [`validation/v6.6/SHA256SUMS.txt`](validation/v6.6/SHA256SUMS.txt)。构建报告与测试结果只说明所列检查，不能代替真实 Windows 和游戏启动实测。
 
 ---
 
