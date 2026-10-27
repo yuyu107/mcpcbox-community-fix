@@ -1,190 +1,182 @@
 # MCPCBox Community Fix
 
-旧版「多玩我的世界盒子 PC 版」的非官方社区兼容修复与功能恢复项目。
+旧版「多玩我的世界盒子 PC 版」的非官方社区兼容修复与功能恢复项目。通过主程序补丁、兼容网页和替代资源接口，让旧盒子的游戏下载、管理、视频与直播等功能继续可用。
 
-本仓库主要保存 **补丁源码、补丁清单、兼容网页源码与技术文档**；普通用户可以直接从 Releases 下载已经修好的成品。
+当前公开版本为 **v7.0**，项目在此前修复基础上恢复维护。本仓库保存源码、补丁和文档，可直接使用的成品在 Releases 中下载。
 
-> 本项目不是多玩官方版本，也不隶属于多玩、YY、Mojang、Microsoft、虎牙或其他相关厂商。
+[下载 v7.0](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v7.0) · [完整更新记录](CHANGELOG.md) · [v7.0 发布说明](docs/RELEASE_v7.0.md) · [构建说明](docs/BUILDING.md)
 
-## 恢复维护：MCPCBox Community Fix v7.0
+> 本项目为非官方社区维护，与多玩、YY、Mojang、Microsoft、虎牙等厂商无隶属关系。
 
-项目在此前修复工作基础上恢复维护，本轮**v7.0 已发布**，相较上一公开版本 **v6.5** 更新下载与管理体验。标签使用 `v7.0`，附件名为 `MCPCBox_Community_Fix_v7.0.zip`。当前发布包对应内部构建 Native Adapter v19，包含已完成记录的持久化修复。
+## 下载与升级
 
-### 相较 v6.5 的主要变化
-
-| 项目 | v6.5 | v7.0 |
+| 内容 | 下载入口 | 用途 |
 | --- | --- | --- |
-| 版本目录 | GitHub Pages 兼容清单，已实测恢复 1.7.10 | 动态官方目录，支持搜索、分类、排序与分页 |
-| 下载进度 | 原资源下载与安装流程 | 一个完整版本对应一条整体任务，汇总全部文件字节进度 |
-| 文件复用 | 原资源下载、校验及安装机制 | 按官方 SHA-1 校验的共享缓存，可供重试、重装及跨版本复用 |
-| 已下载管理 | 原下载记录界面 | 多选、批量仅清记录、独立可关闭提示框；资源删除与版本卸载职责分开 |
-| 完成记录 | 原下载记录机制 | 整体版本记录可跨重启恢复，删除结果同步保存 |
-| 首次中文 | 已支持恢复的 1.7.10 链路 | 扩展到新安装流程，区分新旧语言代码并保留已有设置 |
+| 主程序 v7.0 | [MCPCBox_Community_Fix_v7.0.zip](https://github.com/yuyu107/mcpcbox-community-fix/releases/download/v7.0/MCPCBox_Community_Fix_v7.0.zip) | 当前主程序更新包，包含源码与验证结果 |
+| 本地皮肤工具 v1.0 | [skin-manager-v1.0 Release](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/skin-manager-v1.0) | 独立皮肤导入与管理工具，可按需使用 |
+| 历史主程序 v6.5 | [v6.5 Release](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v6.5) | 保留供历史参考 |
 
-v6.5 已经由盒子自身下载官方客户端，也已具备 1.7.10 首次中文设置；本次扩展的是完整多文件下载、管理和新安装流程。本地游戏导入和启动同样是原有能力。
+v7.0 是**替换主程序的更新包**，需要配合已有盒子安装文件使用。
 
-- [v7.0 完整发布说明及升级方法](docs/RELEASE_v7.0.md)
-- [源码与构建说明](src/native-v19/README.md)
-- [功能、目录与限制](docs/NATIVE_ADAPTER_v7.0.md)
-- [本地验证结果](docs/validation/v7.0/)
+1. 下载并解压更新包，完全退出盒子，备份原来的 `MCPCBox.exe`。
+2. 用包内 `MCPCBox.exe` 覆盖原程序，保留现有 DLL、游戏文件和缓存。
+3. 重新打开盒子，在游戏下载页面选择版本，在下载中心查看整体进度。
 
-本轮还修正了重试回调、原任务收尾、文件占用与下载中心结束状态同步问题。真实 Windows 下载稳定性和各版本启动兼容性仍需验证；当前 v7.0 已发布；v6.5 资料保留作历史参考。
+已存在的游戏可继续通过游戏管理导入和启动，无需重新下载。皮肤工具单独发布，不是主程序运行依赖。
 
-新页面的本机接口内嵌在 EXE 中，监听 `127.0.0.1:19481`；游戏文件仍由原 `CDownloadManager / taskmodulehttp.dll` 下载，无新增外置运行插件。此前“无需本地 HTTP 服务”的说明适用于 v6.5 原链路。
+当前 v7.0 ZIP 的 SHA-256：
 
-## 下载
+```text
+6f78f10fa8000b8a6601a160f002312b1efa6adae498cd2e2a5b33e2ca622bef
+```
 
-### MCPCBox Community Fix v7.0（当前版本）
+## v7.0 更新汇总
 
-- [v7.0 Release 与更新说明](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v7.0)
-- [下载 MCPCBox_Community_Fix_v7.0.zip](https://github.com/yuyu107/mcpcbox-community-fix/releases/download/v7.0/MCPCBox_Community_Fix_v7.0.zip)
+相较上一公开版本 **v6.5**，本次集中改进官方版本获取、完整版本下载、缓存复用与下载管理。
 
-完全退出盒子后替换包内 `MCPCBox.exe`，保留现有 DLL、游戏和缓存。发布包已包含整体完成记录的保存/恢复，配置文件位于 `%APPDATA%\duowan\mcpcbox\community-fix\completed-history-v1.json`；仅删除记录或清空后不会在重启时重新出现。
+| 方面 | v6.5 | v7.0 |
+| --- | --- | --- |
+| 版本列表 | GitHub Pages 兼容清单，已实测恢复 1.7.10 | 动态读取 Mojang 官方目录，支持搜索、分类、排序、分页 |
+| 安装内容 | 兼容引导包接入原安装链路 | 根据官方元数据规划客户端、依赖及资源，完成校验、原生库解压与资源映射 |
+| 下载进度 | 原资源下载与安装流程 | 一个完整版本对应一条整体任务，按全部文件总字节数汇总进度 |
+| 重复下载 | 原有资源校验与安装机制 | 按 SHA-1 与大小校验共享缓存，供重试、重装及跨版本复用 |
+| 已下载管理 | 原下载记录界面 | 多选、批量仅清记录、打开目录、独立操作提示框 |
+| 完成记录 | 原下载记录机制 | 整体版本记录跨重启保存，删除与清空结果同步保存 |
+| 页面交互 | 原兼容条目和安装入口 | 默认折叠说明，按钮显示任务状态，结束提示可关闭 |
+| 首次中文 | 恢复的 1.7.10 链路已支持 | 扩展到新安装流程，区分新旧语言代码并保留已有设置 |
 
-ZIP SHA-256：`6f78f10fa8000b8a6601a160f002312b1efa6adae498cd2e2a5b33e2ca622bef`。
+### 下载与安装
 
-GitHub 自动生成的 Source code ZIP/TAR 对应标签创建时的快照。重建当前附件请优先使用附件内 `Source-v7.0.zip` 或 [`src/native-v19/`](src/native-v19/)。
+- 版本目录、版本 JSON、依赖及资源索引从 Mojang 官方服务获取，游戏文件按官方地址下载。
+- 文件传输继续使用盒子的 `CDownloadManager / taskmodulehttp.dll`，接入原下载中心，无需另外安装下载插件。
+- 多文件下载汇总为一条版本任务，统一显示进度与计数，并接入暂停、继续和取消操作。
+- 完整安装的官方版本登记到游戏管理的纯净版本列表。
+- 校验已有安装文件与共享缓存，完整内容可直接复用；缓存与安装目录使用独立副本。
 
-### 历史版本
+### 已下载页面与记录
 
-#### MCPCBox Community Fix v6.5
+- 支持多选及批量仅删除记录，保留实际文件。
+- 保留普通下载资源的文件删除功能；已安装游戏的卸载由游戏管理负责。
+- 整体版本记录支持打开缓存索引目录。
+- 成功完成的整体版本记录保存名称、目录、大小及编号，重启后恢复；仅删除记录或清空后不会重新出现。
+- 保存失败会提示并重试；已有记录文件损坏时保留原文件，不以空列表静默覆盖。
 
-此前主程序兼容修复版（非当前推荐下载）：
+### 页面与首次语言
 
-- [Release：MCPCBox Community Fix v6.5](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/v6.5)
-- 推荐下载：`MCPCBox_Community_Fix_v6.5.zip`
-- 也可单独下载：`MCPCBox_Community_Fix_v6.5.exe`
+- 已下载页面的操作结果放入专门提示框，支持关闭，后台刷新不会反复弹出同一条提示。
+- 下载页面默认折叠说明、并发配置与单文件测试，减少页面干扰。
+- 下载按钮随任务显示准备中、下载中或等待当前任务，完成、失败和取消等结束提示均可关闭。
+- 新安装成功且不存在 `options.txt` 时，按官方语言资源初始化简体中文，兼容旧版 `zh_CN` 与新版 `zh_cn`；保留已有语言设置。
 
-使用时完全退出盒子，备份原 `MCPCBox.exe`，然后用 Release 中的修复版覆盖即可。
+### 本轮流程修复
 
-原版盒子本身一直支持**导入本地已有的 Minecraft 游戏目录并启动游戏**；v6.5 新恢复的是此前因在线接口失效而无法使用的**“游戏纯净版下载”在线下载安装功能**。如果本机已经有可用游戏，可以继续按原版方式导入和启动，不需要重新下载。
+- 修正整体任务进度、下载计数和结束状态同步，失败任务不再占用活动下载计数。
+- 按原生任务 ID 匹配回调，避免同一路径重试时，旧回调干扰新任务。
+- 等待原任务收尾后再校验、发布缓存或重试，减少同一临时文件的并发冲突。
+- 对短暂文件占用增加有上限的等待，保留 SHA-1 与大小校验。
+- 补充缓存、安装和重试日志，便于定位下载失败。
+- 修复整体版本已完成记录在盒子重启后消失的问题。
 
-### MCPCBox Local Skin Manager v1.0
+上述修正针对本轮新下载流程。v6.5 已经使用盒子自身下载官方客户端，也已有 1.7.10 首次中文设置；本地游戏导入、管理与启动是原版已有能力。
 
-本地皮肤导入/管理工具从主程序中独立发布：
+## 历次改动汇总
 
-- [Release：MCPCBox Local Skin Manager v1.0](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/skin-manager-v1.0)
-- 下载：`MCPCBox_Local_Skin_Manager_v1.0.zip`
+以下汇总项目此前的修复与配套工具，详细版本记录见 [CHANGELOG.md](CHANGELOG.md)。
 
-皮肤工具不需要替换主程序，可以单独使用。
+| 范围 | 已完成的改动 | 对应版本 |
+| --- | --- | --- |
+| Java 下载 | 替换失效地址，修正压缩包目录结构与 MD5，支持 Java 7u80 / Java 8u252 x64 的兼容下载与识别 | v5.8–v6.0 |
+| 版本 JSON | 替换失效基址，提供 Minecraft 1.6.2 至 1.16.5 共 52 个正式版 Windows 兼容 JSON，过滤旧启动器会误处理的非 Windows 依赖 | v6.1 起 |
+| 精彩视频 | 替换失效网页入口，恢复主界面“精彩视频”页面 | v6.2 |
+| 游戏直播 | 恢复直播页面与盒子内虎牙《我的世界》播放，使用当前签名、HLS 优先、多 CDN 切换、缓冲恢复和诊断信息 | v6.3 |
+| 外部入口 | “查看全部直播”打开虎牙《我的世界》分类页；“多玩贴吧”改为百度“多玩我的世界盒子吧” | v6.3 |
+| 关于页面 | 保留原版版本号与版权信息，标记“2026 社区兼容修复版” | v6.3 |
+| 纯净版下载 | 恢复“游戏管理 → 游戏纯净版下载”在线链路，Minecraft 1.7.10 已完成从零下载安装实测 | v6.5 |
+| 官方客户端与语言 | 引导包不包含官方客户端 JAR，由盒子从官方获取；补齐 1.7.10 语言资源并默认简体中文 | v6.5 |
+| 完整版本下载与管理 | 动态官方目录、整体任务、共享缓存、批量记录管理、记录持久化、页面与首次语言优化 | v7.0 |
+| 本地皮肤 | 增加中文皮肤导入、兼容处理、批量管理与索引备份；作为独立工具发布 | 主程序早期配套工作 / Skin Manager v1.0 |
 
-## v6.5 历史功能说明
+v6.5 的历史纯净版条目为 `Minecraft 1.7.10`，版本 ID 为 `1.7.10-mcbox`，使用配套资源仓库中的 `gv.xml` 与 `pure/minecraft_1.7.10_bootstrap.zip`。该链路的安装与启动实测不代表所有官方版本均已通过启动验证。
 
-v6.5 基于原版 `2.0.1429734.498` 进行兼容修复，目前包括：
+## 目录、缓存与删除操作
 
-- **恢复“游戏管理 → 游戏纯净版下载”的在线下载安装功能**。
-- 原版已有的本地游戏导入、管理与启动能力保持不变。
-- 纯净版列表改由 GitHub Pages 提供，不再依赖已失效的多玩资源接口。
-- 首个恢复并实测通过的纯净版为 **Minecraft 1.7.10**。
-- 纯净版引导包不包含 Minecraft 官方客户端 JAR。
-- 启动时由旧版 MCPCBox 自身从 Mojang 官方地址下载 Minecraft 1.7.10 客户端。
-- 普通 Minecraft libraries 继续从 `libraries.minecraft.net` 获取。
-- 首次启动自动补齐 1.7.10 语言资源并默认简体中文；之后用户仍可自行修改语言。
-- 整个纯净版安装与启动流程不需要本地 HTTP 服务器。
-- 修复失效的 Java 运行环境下载地址。
-- 支持 Java 7u80 / Java 8u252 x64 的兼容下载与识别。
-- 修复 Minecraft 版本 JSON 下载地址。
-- 配套提供 Minecraft 1.6.2 至 1.16.5 共 52 个正式版的 Windows 兼容 JSON。
-- 过滤旧启动器会错误处理的非 Windows 依赖。
-- 恢复“精彩视频”页面。
-- 恢复“游戏直播”页面。
-- 在盒子内通过兼容播放器播放当前虎牙《我的世界》直播。
-- 直播播放器使用 HLS 优先策略，支持多 CDN 切换、缓冲恢复和诊断信息。
-- “查看全部直播”跳转到虎牙《我的世界》直播分类页。
-- 顶部“多玩贴吧”按钮改为百度“多玩我的世界盒子吧”。
-- “关于盒子”保留原版版本号，并标记为“2026 社区兼容修复版”。
+下载根目录跟随盒子设置。以 `D:\MCBox\download` 为例，以下路径均相对于该目录：
 
-## Windows 7 兼容性说明
+| 内容 | 位置 |
+| --- | --- |
+| 普通下载资源 | `resources`，保留原有压缩包、模组 JAR 等资源流程 |
+| 官方共享文件缓存 | `resources\official\objects\<SHA-1 前两位>\<SHA-1>` |
+| 官方元数据缓存 | `resources\official\metadata` |
+| 每版本缓存索引 | `resources\official\versions\<版本号>` |
+| 安装后的游戏 | `game\<版本号>\.minecraft` |
 
-本项目会继续尽量保留旧版 MCPCBox 在 **Windows 7 SP1** 上的可用性，推荐使用 **64 位 Windows 7 SP1**。
+共享缓存主要减少重试、重装和跨版本的重复下载，不保证首次下载更快。缓存与安装文件为独立副本，会增加磁盘占用及校验、复制工作；暂不支持按单个版本回收共享缓存。
 
-- MCPCBox 本体、游戏管理、本地游戏导入与本地启动仍沿用原版旧系统时代的运行方式。
-- v6.5 修复的纯净版列表、Java 下载、Minecraft 版本 JSON 与相关资源下载，同样以让旧系统能够继续完成原有流程为目标。
-- 当前提供的兼容 Java 下载为 **Java 7u80 / Java 8u252 x64**；具体使用哪个版本仍取决于 Minecraft 版本和 Mod/整合包需求。
-- 能够在盒子中完成下载或导入，不代表所有 Minecraft 版本、Mod、显卡驱动或第三方组件都一定支持 Windows 7；最终能否进入游戏仍取决于游戏自身及其依赖。
-- 本项目不会为了恢复盒子功能而强制要求用户升级到 Windows 10/11，但 GitHub、Mojang、直播/CDN 等第三方在线服务未来仍可能发生变化。
+| 操作 | 结果 |
+| --- | --- |
+| 仅删除记录 / 批量清记录 | 移除已下载列表条目，保留文件，并保存删除结果 |
+| 删除普通资源文件 | 删除当前配置 `resources` 范围内对应的下载资源 |
+| 卸载已安装游戏 | 在游戏管理中操作 |
+| 整体版本记录打开目录 | 打开该版本的缓存索引目录 |
 
-如果是在 Windows 7 上使用，遇到“盒子本体可以打开，但某个游戏版本或第三方组件无法启动”的情况，应优先区分是 **MCPCBox 本体兼容问题**，还是 **Minecraft / Java / Mod / 驱动自身的系统要求**。
+整体版本的成功记录单独保存到：
 
-## 游戏启动与纯净版下载
+```text
+%APPDATA%\duowan\mcpcbox\community-fix\completed-history-v1.json
+```
 
-原版 MCPCBox 的**本地游戏导入与启动功能本身仍然可用**。如果电脑中已经有可用的 Minecraft 游戏目录，可以继续通过盒子的游戏管理功能导入并启动，不需要使用纯净版下载。
-
-v6.5 额外恢复了原生 `pure_version_itembox` 页面使用的**在线纯净版下载链路**，用于直接从盒子里下载安装游戏版本。
-
-v6.5 的历史在线下载条目：
-
-- 显示名称：`Minecraft 1.7.10`
-- 版本 ID：`1.7.10-mcbox`
-- 纯净版清单：`mcpcbox-downloads/gv.xml`
-- 引导 ZIP：`mcpcbox-downloads/pure/minecraft_1.7.10_bootstrap.zip`
-
-恢复方案保留旧盒子的原生安装、依赖检查和启动流程。Minecraft 客户端及 Mojang 资源文件不由本项目重新分发，而是由用户本机从官方服务获取。
+暂停、失败或取消的任务不会作为成功记录恢复。此前已随旧进程丢失的汇总记录无法自动找回；重新选择相同版本下载时，可校验复用完整文件并生成新记录。程序不会扫描游戏或缓存目录重建已删除的条目。
 
 ## 本地皮肤工具
 
-`MCPCBox Local Skin Manager` 为独立附加工具，源码位于：
+[MCPCBox Local Skin Manager v1.0](https://github.com/yuyu107/mcpcbox-community-fix/releases/tag/skin-manager-v1.0) 独立于主程序发布，下载文件为 `MCPCBox_Local_Skin_Manager_v1.0.zip`，源码位于 [`src/local-skin-manager/`](src/local-skin-manager/)。
 
-`src/local-skin-manager/`
-
-当前功能包括：
-
-- 导入 64×64 和 64×32 PNG 皮肤。
-- 支持经典 Steve 与纤细 Alex 手臂模型。
+- 导入 64×64 和 64×32 PNG 皮肤，支持经典 Steve 与纤细 Alex 手臂模型。
 - 64×64 皮肤自动生成 `[1.8+]` 与 `[1.7]` 两个兼容条目。
-- 针对盒子旧版渲染器处理透明度、叠加层和手臂 UV 兼容问题。
-- 中文界面的本地皮肤管理与批量删除。
-- 删除前自动备份 `downloaded_res.xml`。
+- 处理旧版渲染器的透明度、叠加层及手臂 UV 兼容问题。
+- 提供中文界面与批量删除，删除前自动备份 `downloaded_res.xml`。
 
-普通用户请直接下载独立的 `skin-manager-v1.0` Release。
+## 兼容性与已知问题
 
-## 仓库内容
+本项目继续以保留旧盒子在 **Windows 7 SP1** 上的可用性为目标，推荐 64 位系统。兼容 Java 下载为 Java 7u80 / Java 8u252 x64；游戏所需的 Java、系统、显卡和 Mod 环境仍需分别满足。
 
-- `src/native-v19/`：当前 v7.0 发布附件对应的原生适配源码。
-- `tools/patch_mcpcbox.py`：重建 v6.5 等历史字符串补丁版。
-- `patches/v6.5.json`：v6.5 字符串补丁清单、替换目标与 SHA-256。
-- `src/local-skin-manager/`：本地皮肤工具源码。
-- `web/wonderful-video/`：“精彩视频”兼容页面源码。
-- `web/game-live/`：“游戏直播”兼容页说明与源码对应关系。
-- `docs/BUILDING.md`：自行构建与验证方法。
-- `docs/RELEASE_v7.0.md`：v7.0 发布说明与 v6.5 功能对比。
-- `docs/RELEASE_v6.5.md`：v6.5 历史发布说明。
-- `docs/RELEASE_local_skin_manager_v1.0.md`：皮肤工具发布说明模板。
-- `CHANGELOG.md`：项目更新记录。
+- 获取或安装某个官方版本，不代表旧启动器一定能启动它；新版本的参数、Java 与操作系统要求可能超出旧盒子的能力。
+- 已通过页面状态、安装计划、缓存、历史记录及原生适配的本地与模拟回归。测试中的 Windows / 原组件 API 使用替身，真实 Windows 网络稳定性、内嵌 IE、断点续传和各版本首次启动仍需实测。验证材料见 [docs/validation/v7.0/](docs/validation/v7.0/)。
+- 此前 360 告警尚未解决，未经过安全厂商复核。
+- GitHub、Mojang、虎牙及 CDN 等外部服务变化仍可能影响在线功能。
 
-## 配套资源仓库
+v7.0 页面使用 EXE 内嵌的本机接口 `127.0.0.1:19481`，随盒子运行，不需要单独启动服务。此前 v6.5 的“无需本地 HTTP 服务”描述适用于其原下载链路。
 
-Java 运行环境、Minecraft 版本 JSON、纯净版清单和引导资源由独立仓库提供：
+反馈问题请附盒子版本、Windows 版本、游戏版本、复现操作和错误提示。下载失败时请提供 EXE 同目录 `MCPCBox-native-download.log` 的相关末尾内容，尤其是 `Native retry`、`Cache/install failure` 与 `Version` 汇总。
 
-[`yuyu107/mcpcbox-downloads`](https://github.com/yuyu107/mcpcbox-downloads)
+## 源码与项目结构
 
-该仓库主要作为旧版盒子的替代下载源和 GitHub Pages 静态资源源使用。
+| 路径 | 内容 |
+| --- | --- |
+| [`src/native-v19/`](src/native-v19/) | 当前 v7.0 附件对应的原生适配源码、内嵌页面与测试 |
+| [`tools/patch_mcpcbox.py`](tools/patch_mcpcbox.py) | v6.5 等历史字符串补丁的构建工具 |
+| [`patches/v6.5.json`](patches/v6.5.json) | v6.5 补丁清单、替换目标与校验值 |
+| [`src/local-skin-manager/`](src/local-skin-manager/) | 独立皮肤工具源码 |
+| [`web/wonderful-video/`](web/wonderful-video/) | 精彩视频兼容页面源码 |
+| [`web/game-live/`](web/game-live/) | 游戏直播兼容页说明与源码对应关系 |
+| [`docs/BUILDING.md`](docs/BUILDING.md) | 构建与验证方法 |
+| [`docs/NATIVE_ADAPTER_v7.0.md`](docs/NATIVE_ADAPTER_v7.0.md) | v7.0 原生适配、目录与功能限制 |
+| [`docs/RELEASE_v7.0.md`](docs/RELEASE_v7.0.md) | 当前发布说明与 v6.5 对比 |
+| [`docs/RELEASE_v6.5.md`](docs/RELEASE_v6.5.md) | 历史主程序发布说明 |
+| [`docs/RELEASE_local_skin_manager_v1.0.md`](docs/RELEASE_local_skin_manager_v1.0.md) | 皮肤工具发布说明 |
+| [`CHANGELOG.md`](CHANGELOG.md) | 历次版本变更 |
 
-游戏直播兼容页当前部署在：
+当前 v7.0 附件对应内部构建 Native Adapter v19；内部编号不替代公开版本号。重建请使用附件内 `Source-v7.0.zip` 或主分支 `src/native-v19/`，通过 MinGW 编译，并提供精确匹配且通过 SHA-256 校验的 v4 单列表 EXE 基底。具体步骤见 [构建说明](docs/BUILDING.md)。
 
-`https://yuyu107.github.io/web/live/`
+GitHub 自动生成的 Source code ZIP/TAR 对应 `v7.0` 标签创建时的源码快照，可能不包含随后合入的记录持久化修复。历史 `patch_mcpcbox.py` 与 `v6.5.json` 不会生成当前 v7.0 附件。
 
-实际在线页面由 `yuyu107/web` 仓库维护。
+## 配套资源与在线页面
 
-## 自行构建
+- [yuyu107/mcpcbox-downloads](https://github.com/yuyu107/mcpcbox-downloads)：Java、兼容版本 JSON、旧纯净版清单及引导资源，通过 GitHub Pages 提供替代接口。
+- [yuyu107/web](https://github.com/yuyu107/web)：持续维护的兼容网页；[游戏直播页面](https://yuyu107.github.io/web/live/)。
 
-当前 v7.0 发布附件使用 `src/native-v19/` 的 C 适配代码与 MinGW 构建，需要精确匹配的 v4 单列表 EXE 基底；构建前会校验输入 SHA-256。请参阅 [docs/BUILDING.md](docs/BUILDING.md)。
-
-`tools/patch_mcpcbox.py` 和 `patches/v6.5.json` 保留用于历史 v6.5 构建，不会生成当前 v7.0 发布附件。
-
-## 项目结构说明
-
-从 v6.3 开始：
-
-- **Git 仓库**：保存可查看、可修改、可重建的源码和补丁资料。
-- **Releases**：保存普通用户可直接使用的成品包。
-- **mcpcbox-downloads**：保存旧下载接口所需的替代资源。
-- **web**：承载需要持续在线维护的兼容网页。
-
-这样可以把程序补丁、运行资源和在线网页分别维护，后续某一个服务失效时不需要重新整理整个项目。
+从 v6.3 起，Git 仓库保存源码与补丁，Releases 提供成品，资源仓库提供替代下载源，在线网页单独维护。Minecraft 官方客户端与 Mojang 游戏资源由用户本机从官方服务获取。
 
 ## 许可证与第三方内容
 
-本仓库的 MIT License 仅适用于本项目自行编写的脚本、补丁工具、网页兼容代码和文档。
-
-它不适用于原版 MCPCBox、Minecraft、Java 运行环境、虎牙内容或其他第三方组件。相关软件、商标及内容版权归各自权利人所有。
+本仓库的 MIT License 仅适用于本项目自行编写的脚本、补丁工具、网页兼容代码和文档，不适用于原版 MCPCBox、Minecraft、Java、虎牙内容或其他第三方组件。相关软件、商标与内容版权归各自权利人所有。
